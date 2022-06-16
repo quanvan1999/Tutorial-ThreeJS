@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "Brandon";
+  src: url("/fonts/BrandonGrotesque/main.otf");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "FF Good Pro";
+  src: local("FF Good Pro Light"), local("FF-Good-Pro-Light"),
+    url("/fonts/FFGoodPro-Medium/FFGoodPro-Light.ttf") format("truetype");
+  font-weight: 100 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FF Good Pro";
+  src: local("FF Good Pro Medium"), local("FF-Good-Pro-Medium"),
+    url("/fonts/FFGoodPro-Medium/FFGoodPro-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
