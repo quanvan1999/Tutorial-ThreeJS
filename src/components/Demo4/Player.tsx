@@ -31,6 +31,7 @@ const Player: React.FC<PlayerProps> = ({ url }) => {
   follow.position.z = -distance
 
   const { nodes, animations } = useLoader<any, any>(GLTFLoader, url)
+
   const ref: any = useRef()
   const actions: any = useRef()
 
@@ -158,11 +159,11 @@ const Player: React.FC<PlayerProps> = ({ url }) => {
         character.rotateY(-0.02)
       }
       if (mouse.y >= 0.99 && camera.position.y >= 2) {
-        camera.position.y -= 0.02
+        camera.position.y -= 0.025
       }
 
       if (mouse.y <= -0.99 && camera.position.y <= 7) {
-        camera.position.y += 0.02
+        camera.position.y += 0.025
       }
     }
 
@@ -172,7 +173,7 @@ const Player: React.FC<PlayerProps> = ({ url }) => {
     dir.copy(a).sub(b).normalize()
     const dis = a.distanceTo(b) - distance
     goal.position.addScaledVector(dir, dis)
-    goal.position.lerp(temp, 0.02)
+    goal.position.lerp(temp, 0.025)
 
     temp.setFromMatrixPosition(follow.matrixWorld)
 
