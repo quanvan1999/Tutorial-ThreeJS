@@ -1,11 +1,57 @@
 import { Suspense } from "react"
-import { OrbitControls, ScrollControls, Sky } from "@react-three/drei"
+import { OrbitControls, Sky } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
-import ModelBacground from "./Model1"
+import Model2 from "./Model2"
 
 type Props = {}
 
 const Demo1 = (props: Props) => {
+  const example = {
+    cast: false,
+    child: [
+      {
+        cast: false,
+        name: "Camera",
+        child: [
+          {
+            cast: false,
+            name: "Camera1",
+            child: [],
+          },
+          {
+            cast: false,
+            name: "Camera2",
+            child: [
+              {
+                cast: false,
+                name: "Camera2.1",
+                child: [],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        cast: false,
+        child: [],
+      },
+    ],
+  }
+
+  const setTrueRecursively = (obj) => {
+    if (obj.name === "Camera2.1") {
+      obj.cast = true
+      return
+    }
+
+    if (obj.child.length > 0) {
+      obj.child.forEach((child) => setTrueRecursively(child))
+    }
+  }
+  setTrueRecursively(example)
+
+  console.log(example)
+
   return (
     <Canvas
       dpr={[1, 2]}
@@ -17,7 +63,7 @@ const Demo1 = (props: Props) => {
           Math.cos((1 * Math.PI) / 3) * 3,
         ],
         near: 0.1,
-        far: 100,
+        far: 1000,
       }}
     >
       <ambientLight intensity={0.03} />
@@ -33,7 +79,7 @@ const Demo1 = (props: Props) => {
       />
       <OrbitControls />
       <Sky azimuth={1000} sunPosition={[2, 0.4, 10]} />
-      <ModelBacground scale={0.02} position={[0, -1, 0]} />
+      <Model2 />
     </Canvas>
   )
 }
