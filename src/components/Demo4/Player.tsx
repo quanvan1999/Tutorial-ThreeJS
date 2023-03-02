@@ -85,7 +85,7 @@ const Player: React.FC<PlayerProps> = ({ url }) => {
       }
       if (prevAction && property !== action) {
         if (property === prevAction) {
-          // animations[property].fadeOut(0.01);
+          animations[property].fadeOut(0.01)
         } else {
           animations[property].stop()
         }

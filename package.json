@@ -24,6 +24,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "three": "^0.146.0",
+    "three-stdlib": "^2.17.3",
     "valtio": "^1.6.1"
   },
   "devDependencies": {
